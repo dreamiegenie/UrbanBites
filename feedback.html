@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="feedback.css">
+        <link rel="shortcut icon" href="images/burger.png" type="image/x-icon">
+    <title>Urban Bites</title>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-container">
+        <!-- Logo Area -->
+        <div class="logo">
+            <img src="images/burger.png" alt="Urban Bites Logo">
+            <span>Urban Bites</span>
+        </div>
+
+        <!-- Hidden Checkbox for Mobile Toggle -->
+        <input type="checkbox" id="menu-toggle">
+        
+        <!-- Hamburger Icon (Shows only on mobile) -->
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="feedback.html" class="active">Reviews</a></li>
+            <li><a href="menu.html" class="order-btn">Order Now</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+
+<header class="page-header">
+    <h1>Urban Bites Reviews</h1>
+    <p>Don't just take our word for it. See why we're the favorite spot for delicious fast meals in Agbarha!</p>
+    <div class="header-line"></div>
+</header>
+
+
+    <div class="card-container">
+<!-- Customer 1 Card -->
+<div class="feedback-card">
+    <div class="customer-info">
+        <img src="./images/emma.jpg" alt="Customer 1 Photo" class="avatar">
+        <div class="name-box">
+        <h3>Nwachukwu Emmanuel</h3>
+        <span class="tag">emmaNwachukwu@gmail.com</span>
+    </div>
+    </div>
+    <div class="rating">
+        ★★★★★
+    </div>
+    <p class="comment">
+        "Their shawarma was incredible! Fast service and the fries were perfectly crispy. This is literally the best fast food in agbarha!"
+    </p>
+    <div class="card-footer">
+        <span class="date">Dec 18, 2025</span>
+    </div>
+    </div>
+
+<!-- Customer 2 Card -->
+<div class="feedback-card">
+    <div class="customer-info">
+        <img src="./images/peter.jpg" alt="Customer 2 Photo" class="avatar">
+        <div class="name-box">
+        <h3>Peter "Shifuza"</h3>
+        <span class="tag">dontMessWithShifuza@gmail.com</span>
+        </div>
+    </div>
+    <div class="rating">
+        ★★★★☆
+    </div>
+    <p class="comment">
+        "The burger sweet die 🤤, especially that sauce wey dey inside. Easy site navigation, good customer service. Keep up the good work. I go come again"
+    </p>
+    <div class="card-footer">
+        <span class="date">Jan 5, 2026</span>
+    </div>
+    </div>
+
+<!-- Customer 3 Card -->
+    <div class="feedback-card">
+    <div class="customer-info">
+        <img src="images/elvis.jpg" alt="Customer 3 Photo" class="avatar">
+        <div class="name-box">
+        <h3>Elvis "Black Jesus"</h3>
+        <span class="tag">njikaChimaElvis@gmail.com</span>
+        </div>
+    </div>
+    <div class="rating">
+        ★★★★★
+    </div>
+        <p class="comment">
+            "I highly recommend their rice especially the jollof rice! It was delicious. Affordable meals and swift delivery ❤️"
+        </p>
+        <div class="card-footer">
+            <span class="date">Jan 5, 2026</span>
+        </div>
+    </div>
+
+<!-- Customer 4 Card -->
+<div class="feedback-card">
+    <div class="customer-info">
+        <img src="./images/patrick.jpg" alt="Customer 4 Photo" class="avatar">
+        <div class="name-box">
+        <h3>Patrick</h3>
+        <span class="tag">padieyefagha@gmail.com</span>
+        </div>
+    </div>
+    <div class="rating">
+        ★★★★★
+    </div>
+    <p class="comment">
+        "Didn't know Agbarha had such an amazing fast food restuarant. Wasn't expecting much but my expectations got exceeded.The packaging was secure and nothing was missing. I'm Impressed!"
+    </p>
+    <div class="card-footer">
+        <span class="date">Jan 7, 2026</span>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Feedback Form Section -->
+<div class="form-container">
+    <h2>Drop a Review</h2>
+    <p>Tell us about your experience at Urban Bites!</p>
+    
+    <form action="#" method="POST" class="feedback-form">
+        <div class="form-group">
+            <label for="full-name">Full Name</label>
+            <input type="text" id="full-name" name="full-name" placeholder="Enter your name" required>
+        </div>
+
+        <div class="form-group">
+            <label for="rating-select">Rating</label>
+            <select id="rating-select" name="rating" required>
+                <option value="5">★★★★★ (Excellent)</option>
+                <option value="4">★★★★☆ (Good)</option>
+                <option value="3">★★★☆☆ (Average)</option>
+                <option value="2">★★☆☆☆ (Poor)</option>
+                <option value="1">★☆☆☆☆ (Terrible)</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="user-comment">Your Comment</label>
+            <textarea id="user-comment" name="comment" rows="4" placeholder="How was the food and service?" required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Post Review</button>
+    </form>
+</div>
+
+</body>
+</html>
+
+

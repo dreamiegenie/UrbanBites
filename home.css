@@ -1,0 +1,297 @@
+/* --- Navigation Styling --- */
+#navigation {
+    list-style-type: none;
+    display: flex;
+    justify-content: center; /* Centers the items instead of spreading them */
+    align-items: center;
+    background-color: #ffffff; /* New: Clean white background */
+    padding: 15px 40px;
+    margin: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: sticky; /* Keeps the nav stuck to the top when scrolling */
+    top: 0;
+    z-index: 1000;
+    gap: 30px; /* Adds consistent space between centered links */
+}
+
+/* Style for individual list items (li) */
+
+/* Style for the actual links (a) */
+.nav-links a {
+    color: #333333; /* New: Darker text color for contrast on white background */
+    text-decoration: none; 
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 5px 0; /* Optional padding for a larger clickable area */
+}
+
+/* Hover effect for links */
+.nav-links a:hover {
+    color: #ea5b6b; /* Your accent color */
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* The empty li you had should be removed from your HTML,
+   but this ensures it doesn't cause layout issues: */
+.nav-links:empty {
+    display: none; 
+}
+
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    #navigation {
+        flex-direction: column; /* Stacks links vertically on mobile */
+        gap: 0; /* Remove gap when stacking vertically */
+    }
+
+    .nav-links {
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+
+/* Hero Page Styling */
+#heroPage {
+    width: 100%;
+    height: 80vh; /* Takes up 80% of the screen height */
+    /* Use YOUR local image path */
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                url('./images/burger-hero.jpg'); /* Make sure this is the correct filename */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero h1 {
+    color: white; /* Ensures text is visible over the dark background */
+    font-size: 4rem;
+    font-family: 'Lucida Sans', sans-serif;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.7); /* Adds depth and readability */
+    margin-bottom: 20px;
+}
+
+/* Styling for the new subtitle <p> tag */
+.hero-subtitle {
+    color: #f9f9f9;
+    font-size: 1.5rem;
+    margin-bottom: 30px; /* Adds space between the text and the button */
+    text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8);
+    font-weight: 300;
+}
+
+
+/* Styling the Menu Button you created in HTML */
+.menuButton {
+    background-color: #ea5b6b; /* Accent color from your other cards */
+    color: white;
+    padding: 15px 40px;
+    text-decoration: none; /* Removes the underline */
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.menuButton:hover {
+    background-color: #fb8aa1;
+    transform: scale(1.05);
+}
+
+/* Mobile Responsive Fix */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    #heroPage { height: 60vh; }
+}
+
+
+
+
+/* services styling */
+
+#services {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+    perspective: 1000px; /* Essential for 3D effect */
+}
+
+#service-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* The actual flip container */
+.flip-card {
+    background-color: transparent;
+    width: 280px;
+    height: 320px;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border-radius: 15px;
+}
+
+/* Trigger the flip on hover */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Common styling for both sides */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+/* Front Side Styling */
+.flip-card-front {
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* Back Side Styling */
+.flip-card-back {
+    background-color: #ea5b6b; /* Use your brand accent color */
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.flip-card-back p {
+    font-size: 1.1rem;
+    margin-top: 15px;
+}
+
+
+/* Container Styling */
+#footerDesign {
+    color: white;
+    background-color: #1a1a1a;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.footer-title {
+    font-family: 'Lucida Sans', sans-serif;
+    margin-bottom: 40px;
+}
+
+/* Flexbox Wrapper to make cards sit side-by-side */
+#Team-Wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Space between cards */
+    flex-wrap: wrap; /* Allows stacking on mobile */
+}
+
+/* Shared Card Styling */
+
+.tenderCard, .domiCard, .managerCard {
+    background-color: #242424; 
+    padding: 25px;
+    width: 300px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.tenderCard:hover, .domiCard:hover, .managerCard:hover {
+    transform: translateY(-10px);
+}
+
+/* Specific styling for the new manager card text */
+.josh-manager { 
+    color: #9b7075;
+    margin: 10px 0; 
+    font-family:  Arial, sans-serif;
+}
+
+/* Specific styling for the new manager card button */
+.managerCard .btn {
+    background-color: #9b7075; 
+}
+
+
+
+
+/* Image Styling */
+.t-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; 
+    object-fit: cover;
+    border: 3px solid #fb8aa1;
+    margin-bottom: 15px;
+}
+
+/* Text Styling */
+.name-tender { 
+    color:  #9b7075; 
+    margin: 10px 0; 
+    font-family:  Arial, sans-serif;
+}
+.name-domi { 
+    color:  #9b7075;
+    margin: 10px 0;
+    font-family:  Arial, sans-serif;
+}
+.role { color: #aaaaaa; font-size: 0.9rem; margin: 5px 0; }
+.sub-role { color: #ef799b; font-size: 0.85rem; margin-bottom: 15px; }
+
+.email-link {
+    display: block;
+    color: #888;
+    text-decoration: none;
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+}
+
+/* Button Styling - Note: removed button tag, styled the <a> directly */
+.btn {
+    display: inline-block;
+    background-color:  #9b7075;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.domiCard .btn {
+    background-color: #9b7075; /* Matching Dominion's theme */
+}
+
+.btn:hover {
+    opacity: 0.8;
+    background-color: #686067;
+    color: plum;
+}

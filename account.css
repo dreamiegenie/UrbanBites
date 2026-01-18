@@ -1,0 +1,179 @@
+/* Centering the entire card on the screen */
+.auth-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Changed to 100vh to center perfectly on the page */
+    padding: 20px;
+    background-color: #f9f9f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.auth-container {
+    background: #fff;
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-top: 6px solid #ffc107;
+}
+
+/* Form Headings */
+.form-box h2 {
+    margin: 0 0 10px;
+    color: #333;
+    text-align: center;
+}
+
+.form-box p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 25px;
+    font-size: 0.9rem;
+}
+
+/* FIX: Stacking the fields properly */
+.form-group {
+    margin-bottom: 20px; /* Space between each field block */
+    display: flex;
+    flex-direction: column; /* Force label to be on top of input */
+    text-align: left;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #444;
+    font-size: 0.9rem;
+}
+
+/* Input styling */
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Ensures padding doesn't break the width */
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #ffc107;
+    box-shadow: 0 0 5px rgba(255, 193, 7, 0.2);
+}
+
+/* Button Styling */
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #ffc107;
+    border: none;
+    border-radius: 10px;
+    color: #000;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #e5ac00;
+}
+
+/* Toggle Text at bottom */
+.toggle-text {
+    margin-top: 25px;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.toggle-text a {
+    color: #ffc107;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.toggle-text a:hover {
+    text-decoration: underline;
+}
+
+
+/* Social Auth Styling */
+.social-auth {
+    margin-top: 20px;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #aaa;
+}
+
+.divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #ddd;
+}
+
+.divider span {
+    padding: 0 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.google-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #444;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.google-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.google-btn:hover {
+    background-color: #f1f1f1;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+
+.back-home {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: #888;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+    transition: color 0.3s;
+    width: fit-content;
+}
+
+.back-home:hover {
+    color: #ffc107; /* Brand Yellow */
+}
+
+/* Optional: Make the auth-container position relative for better child positioning */
+.auth-container {
+    position: relative;
+    background: #fff;
+    /* ... existing styles ... */
+}

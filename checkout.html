@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | Urban Bites</title>
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+    <div class="checkout-container">
+        <!-- Left Side: Address & Payment -->
+        <div class="checkout-main">
+            <h2>Delivery Details</h2>
+            <form id="checkout-form">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="Enter name" required>
+                </div>
+                <div class="form-group">
+                    <label>Delivery Address</label>
+                    <textarea placeholder="No. 12 RingRoad, Agbarha" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" placeholder="08012345678" required>
+                </div>
+
+                <h2>Payment Method</h2>
+                <div class="payment-options">
+                    <label class="pay-card">
+                        <input type="radio" name="payment" value="Cash" checked>
+                        <span>💵 Cash on Delivery</span>
+                    </label>
+                    <label class="pay-card">
+                        <input type="radio" name="payment" value="Transfer">
+                        <span>🏦 Bank Transfer</span>
+                    </label>
+                    <label class="pay-card">
+                        <input type="radio" name="payment" value="Card">
+                        <span>💳 Card Payment</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="place-order-btn">Complete Order</button>
+            </form>
+        </div>
+
+        <!-- Right Side: Order Summary -->
+        <div class="order-summary">
+            <h3>Your Bill</h3>
+            <div id="summary-items"></div>
+            <hr>
+            <div class="total-row">
+                <span>Grand Total:</span>
+                <span id="final-total">₦0</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="checkout.js"></script>
+</body>
+</html>

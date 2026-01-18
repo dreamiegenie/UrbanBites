@@ -1,0 +1,188 @@
+/* --- GLOBAL FIXES --- */
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* THIS FIXES THE PEEKING LINKS */
+    background-color: #f9f9f9;
+}
+
+/* --- NAVIGATION BAR --- */
+.navbar {
+    background-color: #ffffff;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img { height: 40px; }
+.logo span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+#menu-toggle { display: none; }
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #333;
+    border-radius: 2px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #ffc107;
+}
+
+.order-btn {
+    background-color: #ffc107;
+    color: #000 !important;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* --- MOBILE MENU --- */
+@media (max-width: 768px) {
+    .hamburger { display: flex; }
+
+    .nav-links {
+        position: fixed; /* Changed to fixed for better stability */
+        top: 80px;
+        right: -100%; /* Move it completely off to the right */
+        flex-direction: column;
+        background: #ffffff;
+        width: 250px; /* Thinner sidebar style looks better on mobile */
+        height: calc(100vh - 80px);
+        gap: 0;
+        transition: 0.4s ease;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    }
+
+    .nav-links li { width: 100%; border-bottom: 1px solid #eee; }
+    .nav-links a { display: block; padding: 20px; }
+
+    #menu-toggle:checked ~ .nav-links {
+        right: 0; /* Slide in from the right */
+    }
+}
+
+/* --- HEADER --- */
+.page-header {
+    text-align: center;
+    padding: 60px 20px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.page-header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+.header-line {
+    width: 60px;
+    height: 5px;
+    background: #ffc107;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+/* --- CARDS SECTION --- */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feedback-card {
+    background: #fff;
+    width: 320px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border-top: 5px solid #ffc107;
+    display: flex;
+    flex-direction: column;
+}
+
+.customer-info { display: flex; align-items: center; margin-bottom: 15px; }
+.avatar { width: 50px; height: 50px; border-radius: 50%; margin-right: 12px; }
+.rating { color: #ffc107; margin-bottom: 10px; }
+.comment { font-style: italic; color: #555; flex-grow: 1; }
+
+/* --- FORM SECTION --- */
+.form-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 15px;
+    border-top: 5px solid #ffc107;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.form-group { margin-bottom: 15px; }
+input[type="text"], select, textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background: #ffc107;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}

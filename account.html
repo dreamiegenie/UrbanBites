@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Bites</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="account.css">
+    <link rel="shortcut icon" href="images/burger.png" type="image/x-icon">
+</head>
+    <body>
+        <div class="auth-wrapper">
+    <div class="auth-container" id="auth-card">
+        <!-- Login Form -->
+        <div class="form-box login" id="login-form">
+            <h2>Welcome Back!</h2>
+            <p>Login to track your Urban Bites rewards.</p>
+            <form action="#">
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="email@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="submit-btn">Login</button>
+                <!-- Inside both #login-form and #signup-form, below the submit button -->
+<div class="social-auth">
+    <div class="divider">
+        <span>OR</span>
+    </div>
+    <button type="button" class="google-btn">
+        <img src="./images/google.png" alt="Google Icon">
+        Continue with Google
+    </button>
+</div>
+            </form>
+            <p class="toggle-text">New to Urban Bites? <a href="#" onclick="toggleAuth()">Create an Account</a></p>
+        </div>
+
+        <!-- Create Account Form (Hidden by default) -->
+        <div class="form-box signup" id="signup-form" style="display: none;">
+            <h2>Join the Family</h2>
+            <p>Create an account for faster checkout.</p>
+            <form action="#">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="email@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Create Password</label>
+                    <input type="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="submit-btn">Sign Up</button>
+                <!-- Inside both #login-form and #signup-form, below the submit button -->
+            <div class="social-auth">
+                <div class="divider">
+                <span>OR</span>
+            </div>
+            <button type="button" class="google-btn">
+                    <img src="./images/google.png" alt="Google Icon">
+                    Continue with Google
+            </button>
+            </div>
+
+            </form>
+            <p class="toggle-text">Already have an account? <a href="#" onclick="toggleAuth()">Login here</a></p>
+        </div>
+    </div>
+</div>
+
+<div class="auth-wrapper">
+    <div class="auth-container" id="auth-card">
+        <!-- Back to Home Link -->
+        <a href="home.html" class="back-home">
+            <svg xmlns="http://www.w3.org" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            Back to Home
+        </a>
+
+        <!-- Login Form -->
+        <div class="form-box login" id="login-form">
+            <h2>Welcome Back!</h2>
+            <!-- ... existing form content ... -->
+        </div>
+        
+        <!-- ... signup form content ... -->
+    </div>
+</div>
+
+<script src="account.js"></script>
+
+
+
+    </body>
+</html>

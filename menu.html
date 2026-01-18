@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | Urban Bites</title>
+    <link rel="shortcut icon" href="images/fast-food.png" type="image/x-icon">
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo"><span>Urban Bites</span></div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="menu.html" class="active">Menu</a></li>
+                <li><a href="feedback.html">Reviews</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="menu-page-container">
+        <!-- Menu Items Section -->
+        <main class="menu-section">
+            <h1 class="category-title">Our Delicious Menu</h1>
+            <div class="menu-grid" id="menu-grid">
+                <!-- Items will be displayed using javascript -->
+            </div>
+        </main>
+
+        <!-- Cart Sidebar -->
+        <aside class="cart-sidebar">
+            <h3>Your Order</h3>
+            <div id="cart-items">
+                <p class="empty-msg">Your cart is empty</p>
+            </div>
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="total-price">₦0</span>
+            </div>
+            <button class="checkout-btn">Proceed to Checkout</button>
+        </aside>
+    </div>
+
+    <script src="menu.js"></script>
+</body>
+</html>
