@@ -7,114 +7,79 @@ body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f4f4; }
 
 .menu-page-container {
     display: flex;
-    flex-wrap: wrap; /* Allows the cart to move below the menu on small screens */
+    flex-wrap: wrap;
     max-width: 1200px;
     margin: 30px auto;
     gap: 20px;
-    padding: 0 15px; /* Added padding to prevent touching screen edges */
-    overflow-x: hidden; /* Prevents horizontal scrolling */
+    padding: 0 15px;
 }
 
-.menu-section {
-    flex: 3;
-    min-width: 300px; /* Ensures it doesn't get too squashed */
-}
-
+.menu-section { flex: 3; min-width: 300px; }
 .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 20px; }
 
 .item-card { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; text-align: center; padding-bottom: 15px; }
-.item-card:hover { transform: translateY(-5px); }
-.item-img { width: 100%; height: 160px; background: #ddd; object-fit: cover; }
+.item-img { width: 100%; height: 180px; object-fit: cover; display: block; }
 .item-info h3 { margin: 10px 0 5px; font-size: 1.2rem; }
 .price { color: #27ae60; font-weight: bold; font-size: 1.1rem; display: block; margin-bottom: 10px; }
-.add-btn { background: #ffc107; border: none; padding: 8px 20px; border-radius: 20px; font-weight: bold; cursor: pointer; transition: 0.3s; }
-.add-btn:hover { background: #e5ac00; }
-.item-img {
-    width: 100%;
-    height: 180px; /* Fixed height for a clean grid */
-    object-fit: cover; /* This prevents the food image from stretching */
-    display: block;
-}
+.add-btn { background: #ffc107; border: none; padding: 8px 20px; border-radius: 20px; font-weight: bold; cursor: pointer; }
 
-/* Cart Styling */
-.cart-sidebar { flex: 1; background: #fff; padding: 20px; border-radius: 15px; height: fit-content; position: sticky; top: 100px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+/* --- THE ISLAND UI CART --- */
+.cart-sidebar { 
+    flex: 1; 
+    background: #fff; 
+    padding: 25px; 
+    border-radius: 20px; 
+    height: fit-content; 
+    position: sticky; 
+    top: 100px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+    border-top: 6px solid #ffc107;
+}
 
 .cart-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
-    width: 100%;
-    overflow: hidden; /* Keeps content inside */
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
 }
 
+.cart-item-info { display: flex; flex-direction: column; text-align: left; }
 
-.cart-item-info span {
-    white-space: nowrap; /* Prevents name from wrapping weirdly */
-    overflow: hidden;
-    text-overflow: ellipsis; /* Adds "..." if the name is too long */
-    max-width: 150px; /* Adjust based on your sidebar width */
+.qty-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f1f1f1;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.qty-controls button {
+    border: none;
+    background: none;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.1rem;
 }
 
 .cart-total { margin-top: 20px; font-weight: bold; font-size: 1.2rem; display: flex; justify-content: space-between; }
-.checkout-btn { width: 100%; background: #000; color: #fff; border: none; padding: 12px; border-radius: 10px; margin-top: 15px; cursor: pointer; font-weight: bold; }
+.checkout-btn { width: 100%; background: #000; color: #fff; border: none; padding: 15px; border-radius: 12px; margin-top: 15px; cursor: pointer; font-weight: bold; }
 
-/* --- New CSS for the Modal/Pop-up Cart --- */
-.modal {
-    display: none; 
-    position: fixed; 
-    z-index: 2000; 
-    left: 0;
-    top: 0;
-    width: 100%; 
-    height: 100%; 
-    background-color: rgba(0,0,0,0.4); 
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; 
-    padding: 20px;
-    border-radius: 15px;
-    width: 90%;
-    max-width: 400px;
-    position: relative;
-}
-
-.close-btn {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.floating-cart-btn {
-    display: none; /* Hidden on desktop */
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: #000;
-    color: white;
-    padding: 15px 25px;
-    border-radius: 30px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    font-weight: bold;
-    z-index: 1500;
-    cursor: pointer;
-}
-
-/* --- Mobile Specific Overrides --- */
+/* --- MOBILE RESPONSIVE --- */
 @media (max-width: 900px) {
-    /* Hide the original cart on mobile view */
-    .cart-sidebar {
-        display: none; 
-    }
-    /* Show the floating button on mobile */
-    .floating-cart-btn {
-        display: block; 
-    }
     .menu-page-container {
-        padding-bottom: 80px; /* Space for floating button */
+        flex-direction: column;
+        padding: 0 15px 40px 15px;
+    }
+    .cart-sidebar {
+        position: static;
+        width: 100%;
+        margin-top: 30px;
+        box-sizing: border-box;
+    }
+    .menu-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 15px;
     }
 }
