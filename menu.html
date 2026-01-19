@@ -41,6 +41,25 @@
             <button class="checkout-btn">Proceed to Checkout</button>
         </aside>
     </div>
+    <!-- Add this just before the closing </body> tag in menu.html -->
+    <button class="floating-cart-btn" id="open-cart-modal">
+        <span id="cart-item-count">0</span> items | <span id="cart-btn-total">₦0</span>
+    </button>
+
+    <!-- The Modal/Pop-up Window for Mobile -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-cart-modal">&times;</span>
+            <h3>Your Order Summary</h3>
+            <!-- Cart items will be rendered here via JS -->
+            <div id="modal-cart-items"></div>
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="modal-total-price">₦0</span>
+            </div>
+            <button class="checkout-btn" id="modal-checkout-btn">Proceed to Checkout</button>
+        </div>
+    </div>
 
     <script src="menu.js"></script>
 </body>
