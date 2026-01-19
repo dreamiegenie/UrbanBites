@@ -36,9 +36,9 @@ function addToCart(id) {
     const existingItem = cart.find(cartItem => cartItem.id === id);
 
     if (existingItem) {
-        existingItem.quantity += 1; // Correct: Just increase number
+        existingItem.quantity += 1;
     } else {
-        cart.push({ ...item, quantity: 1 }); // Correct: Add new with qty 1
+        cart.push({ ...item, quantity: 1 });
     }
     updateCart();
 }
@@ -79,15 +79,18 @@ function updateCart() {
 
     const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     totalEl.innerText = `₦${total.toLocaleString()}`;
+    
+    // Crucial: Save to localStorage so checkout.html can see it!
+    localStorage.setItem('urbanBitesCart', JSON.stringify(cart));
 }
 
 displayMenu();
 
+// Use this listener for the checkout button
 document.querySelector('.checkout-btn').addEventListener('click', () => {
     if (cart.length === 0) {
         alert("Your cart is empty!");
         return;
     }
-    localStorage.setItem('urbanBitesCart', JSON.stringify(cart));
     window.location.href = 'checkout.html';
 });
