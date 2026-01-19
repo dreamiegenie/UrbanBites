@@ -59,22 +59,66 @@ body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f4f4; }
 .checkout-btn { width: 100%; background: #000; color: #fff; border: none; padding: 12px; border-radius: 10px; margin-top: 15px; cursor: pointer; font-weight: bold; }
 
 
+/* Styling for the +/- buttons in the cart */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f1f1f1;
+    padding: 4px 8px;
+    border-radius: 15px;
+}
+.quantity-controls button {
+    border: none;
+    background: none;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 5px;
+}
 
+/* MOBILE FIX: Bottom Sticky Checkout */
 @media (max-width: 900px) {
     .menu-page-container {
-        flex-direction: column; /* Stacks Menu on top, Cart on bottom */
+        flex-direction: column;
+        padding-bottom: 120px; /* Space for the sticky bottom bar */
     }
 
+    /* The sidebar list stays normal at the bottom */
     .cart-sidebar {
-        position: static; /* Removes the "sticky" behavior on mobile */
-        width: 100%;      /* Makes it full width */
-        margin-top: 20px;
-        box-sizing: border-box; /* Ensures padding doesn't cause overflow */
+        position: static; 
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* We force the total and checkout button to stick to the screen bottom */
+    .cart-total, .checkout-btn {
+        position: fixed;
+        left: 0;
+        width: 100%;
+        margin: 0;
+        z-index: 1100;
+    }
+
+    .cart-total {
+        bottom: 60px; /* Sits above the button */
+        background: #fff;
+        padding: 15px 20px;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        border-top: 1px solid #eee;
+    }
+
+    .checkout-btn {
+        bottom: 0;
+        height: 60px;
+        border-radius: 0;
+        background: #ffc107; /* Brighter color for mobile attention */
+        color: #000;
     }
 
     .menu-grid {
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* Smaller cards for mobile */
-        gap: 15px;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 12px;
     }
 }
+
 
