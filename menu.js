@@ -30,9 +30,31 @@ function displayMenu() {
     `).join('');
 }
 
+// FIXED: Now checks if item exists to group them
 function addToCart(id) {
     const item = menuItems.find(p => p.id === id);
-    cart.push(item);
+    const existingItem = cart.find(cartItem => cartItem.id === id);
+
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        // Add new item with quantity property
+        cart.push({ ...item, quantity: 1 });
+    }
+    updateCart();
+}
+
+// NEW: Function to handle the + and - buttons
+function changeQuantity(id, delta) {
+    const item = cart.find(cartItem => cartItem.id === id);
+    if (!item) return;
+
+    item.quantity += delta;
+
+    // Remove item if quantity hits 0
+    if (item.quantity <= 0) {
+        cart = cart.filter(cartItem => cartItem.id !== id);
+    }
     updateCart();
 }
 
@@ -46,28 +68,33 @@ function updateCart() {
         return;
     }
 
-    cartList.innerHTML = cart.map((item, index) => `
-        <div class="cart-item">
-            <span>${item.name}</span>
-            <span>₦${item.price.toLocaleString()}</span>
+    // UPDATED: Added Quantity Controls UI
+    cartList.innerHTML = cart.map((item) => `
+        <div class="cart-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; border-bottom: 1px solid #eee; padding-bottom: 8px;">
+            <div style="display: flex; flex-direction: column;">
+                <span style="font-weight: 500;">${item.name}</span>
+                <small style="color: #27ae60; font-weight: bold;">₦${item.price.toLocaleString()}</small>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; background: #f8f8f8; padding: 4px 8px; border-radius: 20px;">
+                <button onclick="changeQuantity(${item.id}, -1)" style="border:none; background:none; cursor:pointer; font-weight:bold; font-size:1.2rem;">-</button>
+                <span style="font-weight: bold; min-width: 20px; text-align: center;">${item.quantity}</span>
+                <button onclick="changeQuantity(${item.id}, 1)" style="border:none; background:none; cursor:pointer; font-weight:bold; font-size:1.2rem;">+</button>
+            </div>
         </div>
     `).join('');
 
-    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    // UPDATED: Calculation now multiplies by quantity
+    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
     totalEl.innerText = `₦${total.toLocaleString()}`;
 }
 
-// Initialize
 displayMenu();
-
 
 document.querySelector('.checkout-btn').addEventListener('click', () => {
     if (cart.length === 0) {
         alert("Your cart is empty!");
         return;
     }
-    // Save cart data so checkout.html can read it
     localStorage.setItem('urbanBitesCart', JSON.stringify(cart));
     window.location.href = 'checkout.html';
 });
-
