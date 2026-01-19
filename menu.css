@@ -5,9 +5,21 @@ body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f4f4; }
 .nav-links { display: flex; list-style: none; gap: 20px; }
 .nav-links a { text-decoration: none; color: #333; font-weight: 500; }
 
-.menu-page-container { display: flex; max-width: 1200px; margin: 30px auto; gap: 20px; padding: 0 20px; }
+.menu-page-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows the cart to move below the menu on small screens */
+    max-width: 1200px;
+    margin: 30px auto;
+    gap: 20px;
+    padding: 0 15px; /* Added padding to prevent touching screen edges */
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+}
 
-.menu-section { flex: 3; }
+.menu-section {
+    flex: 3;
+    min-width: 300px; /* Ensures it doesn't get too squashed */
+}
+
 .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 20px; }
 
 .item-card { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.3s; text-align: center; padding-bottom: 15px; }
@@ -26,11 +38,43 @@ body { font-family: 'Segoe UI', sans-serif; margin: 0; background: #f4f4f4; }
 
 /* Cart Styling */
 .cart-sidebar { flex: 1; background: #fff; padding: 20px; border-radius: 15px; height: fit-content; position: sticky; top: 100px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-.cart-item { display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 0.9rem; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    overflow: hidden; /* Keeps content inside */
+}
+
+.cart-item-info span {
+    white-space: nowrap; /* Prevents name from wrapping weirdly */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adds "..." if the name is too long */
+    max-width: 150px; /* Adjust based on your sidebar width */
+}
+
 .cart-total { margin-top: 20px; font-weight: bold; font-size: 1.2rem; display: flex; justify-content: space-between; }
 .checkout-btn { width: 100%; background: #000; color: #fff; border: none; padding: 12px; border-radius: 10px; margin-top: 15px; cursor: pointer; font-weight: bold; }
 
-@media (max-width: 768px) {
-    .menu-page-container { flex-direction: column; }
-    .cart-sidebar { position: static; width: 100%; }
+
+
+@media (max-width: 900px) {
+    .menu-page-container {
+        flex-direction: column; /* Stacks Menu on top, Cart on bottom */
+    }
+
+    .cart-sidebar {
+        position: static; /* Removes the "sticky" behavior on mobile */
+        width: 100%;      /* Makes it full width */
+        margin-top: 20px;
+        box-sizing: border-box; /* Ensures padding doesn't cause overflow */
+    }
+
+    .menu-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* Smaller cards for mobile */
+        gap: 15px;
+    }
 }
+
